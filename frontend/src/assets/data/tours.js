@@ -12,10 +12,7 @@ const tours = [
     title: "Gosaikunda",
     city: "Rasuwa",
     distance: 300,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 10,
     desc: "this is the description",
@@ -24,13 +21,13 @@ const tours = [
         name: "jhon doe",
         rating: 4.6,
       },
-<<<<<<< HEAD
-=======
+
+
       {
         name: "jhon doe",
         rating: 4.6,
       },
->>>>>>> 0f5525d82 (added tour details and Booking layout)
+
     ],
     avgRating: 4.5,
     photo: tourImg01,
@@ -41,10 +38,9 @@ const tours = [
     title: "LakeSide",
     city: "Pokhara",
     distance: 400,
-<<<<<<< HEAD
-=======
+
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
+
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -63,10 +59,7 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -85,10 +78,7 @@ const tours = [
     title: "Beautiful Sunrise, Thailand",
     city: "Thailand",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -107,10 +97,7 @@ const tours = [
     title: "Nusa Pendia Bali, Indonesia",
     city: "Indonesia",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -129,10 +116,7 @@ const tours = [
     title: "Cherry Blossoms Spring",
     city: "Japan",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -151,10 +135,7 @@ const tours = [
     title: "Holmen Lofoten",
     city: "France",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -181,10 +162,7 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
-<<<<<<< HEAD
-=======
     address:'somewhere',
->>>>>>> 0f5525d82 (added tour details and Booking layout)
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React from 'react'
 
-function Tour() {
-  return (
-    <div>Tour</div>
-=======
+
 import React,{useState,useEffect}from 'react'
 import CommonSection from '../shared/CommonSection'
 import TourCard from '../shared/TourCard'
@@ -54,7 +49,7 @@ function Tour() {
       
     </section>
     </>
->>>>>>> 0f5525d82 (added tour details and Booking layout)
+
   )
 }
 

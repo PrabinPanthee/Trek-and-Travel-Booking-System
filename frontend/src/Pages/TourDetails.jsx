@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
 
-function TourDetails() {
-  return (
-    <div>TourDetails</div>
-=======
 import React,{useRef,useState} from 'react'
 import '../style/TourDetails.css'
 import {Container,Row,Col,Form,ListGroup} from 'reactstrap'
@@ -26,8 +20,10 @@ function TourDetails() {
   const options ={day:'numeric',month:'long',year:'numeric'}
   const submitHandler =e=>{
     e.preventDefault();
-    const reviewText = reviewMsgRef.current.value;
+    const reviewText = reviewMsgRef.current.value; 
+    console.log(`${tourRating},${reviewText}`);
   }
+
   
   return (
     <>
@@ -113,7 +109,7 @@ function TourDetails() {
     </section>
     
     </>
->>>>>>> 0f5525d82 (added tour details and Booking layout)
+
   )
 }
 

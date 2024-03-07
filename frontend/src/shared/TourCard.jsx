@@ -26,12 +26,7 @@ function TourCard({tour}) {
                     </span>
                     <span className="tour__ratting d-flex align-items-center gap-1">
                         <i className="ri-star-s-fill"></i>{avgRating ===0?null:avgRating}
-<<<<<<< HEAD
-                        {totalReview === 0?("not rated"):(<span>({reviews.length})</span>)}
-=======
-                        {totalReview === 0?("not rated"):(<span>({reviews?.length})</span>)}
->>>>>>> 0f5525d82 (added tour details and Booking layout)
-                        
+                        {totalReview === 0?("not rated"):(<span>({reviews?.length})</span>)} 
                     </span>
                 </div>
                 <h5 className="tour__title"><Link to={`/tours/${id}`}>{title}</Link></h5>

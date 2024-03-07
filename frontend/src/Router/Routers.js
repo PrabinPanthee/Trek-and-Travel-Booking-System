@@ -13,7 +13,6 @@ function Routers() {
         <Route path='/' element = {<Navigate to ="/home"/>}/>
         <Route path='/home' element = {<Home/>}/>
         <Route path='/tour' element = {<Tour/>}/>
-<<<<<<< HEAD
         <Route path='/tour/:id' element = {<TourDetails/>}/>
         <Route path='/login' element = {<Login/>}/>
         <Route path='/register' element = {<Register/>}/>
@@ -23,7 +22,6 @@ function Routers() {
         <Route path='/login' element = {<Login/>}/>
         <Route path='/register' element = {<Register/>}/>
         <Route path='/tours/search' element = {<SearchResult/>}/>
->>>>>>> 0f5525d82 (added tour details and Booking layout)
         
         
      </Routes>

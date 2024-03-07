@@ -26,11 +26,10 @@
     object-fit: cover;
 }
 .home__content{
-<<<<<<< HEAD
+
     padding-top: 3.5rem;
-=======
     padding-top: 2rem;
->>>>>>> 0f5525d82 (added tour details and Booking layout)
+
 }
 .home__img-box{
     padding-top: 2rem;
