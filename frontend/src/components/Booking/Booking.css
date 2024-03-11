@@ -31,9 +31,11 @@ color: var(--secondary-color);
     padding-top: 2rem;
     border-bottom: 1px solid rgb(240, 238, 238);
 }
+
 .booking__form{
     padding: 2rem;
 }
+
 .booking__form h5{
     margin-bottom: 1rem;
 }
@@ -52,13 +54,15 @@ color: var(--secondary-color);
     padding: 1rem;
     border: 1px solid rgb(240, 238, 238);
 }
+
 .booking__bottom li{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.booking__bottom li h5, .booking__bottom li span{
+.booking__bottom li h5,
+.booking__bottom li span{
    font-size: 1rem;
    color: var(--text-color);
    font-weight: 500;

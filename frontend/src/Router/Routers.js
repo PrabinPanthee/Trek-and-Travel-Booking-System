@@ -6,6 +6,7 @@ import TourDetails from '../Pages/TourDetails'
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import SearchResult from '../Pages/SearchResultList'
+import PaymentGateaway from '../Pages/PaymentGateaway'
 
 function Routers() {
   return (
@@ -17,7 +18,7 @@ function Routers() {
         <Route path='/login' element = {<Login/>}/>
         <Route path='/register' element = {<Register/>}/>
         <Route path='/tour/search' element = {<SearchResult/>}/>
-=======
+        <Route path='/Payment-GateAway' element = {<PaymentGateaway/>}/> 
         <Route path='/tours/:id' element = {<TourDetails/>}/>
         <Route path='/login' element = {<Login/>}/>
         <Route path='/register' element = {<Register/>}/>

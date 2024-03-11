@@ -3,6 +3,7 @@
 import React,{useState} from 'react'
 import './Booking.css'
 import {Form,FormGroup,ListGroup,ListGroupItem,Button} from 'reactstrap'
+import { useNavigate } from 'react-router-dom'
 
 
 const Booking = ({tour,avgRating}) => {
@@ -18,13 +19,17 @@ const Booking = ({tour,avgRating}) => {
   const handleChange=e=>{
    setCredentials(prev=>({...prev,[e.target.id]:e.target.value}))
   };
+  const navigate = useNavigate();
 
   // send data to the server
 
+  const serviceFee =10;
+  const totalAmount = Number(price)*Number(credentials.guestSize) + Number(serviceFee);
+
   const handleClick =e=>{
     e.preventDefault()
-
-    console.log(credentials);
+     
+    navigate('/Payment-GateAway');
   }
   return (
     <div className="booking">
@@ -62,11 +67,11 @@ const Booking = ({tour,avgRating}) => {
            </ListGroupItem>
            <ListGroupItem className='border-0 px-0'>
             <h5>Service charge</h5>
-              <span>$10</span>
+              <span>${serviceFee}</span>
            </ListGroupItem>
            <ListGroupItem className='border-0 px-0 total'>
             <h5>Total </h5>
-              <span>$109</span>
+              <span>${totalAmount}</span>
            </ListGroupItem>
         </ListGroup>
 
