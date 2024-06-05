@@ -1,40 +1,108 @@
 
-
+import axios from 'axios'
 import React,{useState} from 'react'
 import './Booking.css'
-import {Form,FormGroup,ListGroup,ListGroupItem,Button} from 'reactstrap'
-import { useNavigate } from 'react-router-dom'
+import {Form,FormGroup,ListGroup,ListGroupItem,Button,Input} from 'reactstrap'
+
+import { BASE_URL } from '../../utils/config'
+
+import { AuthContext } from '../../context/authContext'
+import { useContext } from 'react'
+import bookingValidation from '../../Validation/bookingValidation'
 
 
 const Booking = ({tour,avgRating}) => {
-  const {price,reviews} = tour;
-  const[credentials, setCredentials] = useState({
-    userId :'01', //later it will be dynamic
-    userEmail:'hello@gmail.com',
-    fullName:'',
-    Phone:'',
+  const {price,reviews,title} = tour;  
+ 
+
+  const{user} = useContext(AuthContext)
+
+  const[booking, setBooking] = useState({
+    phone:'',
     guestSize:1,
     bookAt:''
   })
+ 
   const handleChange=e=>{
-   setCredentials(prev=>({...prev,[e.target.id]:e.target.value}))
+   setBooking(prev=>({...prev,[e.target.id]:e.target.value}))
   };
-  const navigate = useNavigate();
+
+   const [errors,setErrors] = useState({});
 
   // send data to the server
 
-  const serviceFee =10;
-  const totalAmount = Number(price)*Number(credentials.guestSize) + Number(serviceFee);
+  const totalAmount = Number(price)*Number(booking.guestSize)
 
-  const handleClick =e=>{
+  const handleClick = async e=>{
     e.preventDefault()
-     
-    navigate('/Payment-GateAway');
-  }
+    const phone = booking.phone.trim();
+    const guestSize = parseInt(booking.guestSize);
+    const validationErrors = bookingValidation(booking)
+    setErrors(validationErrors);
+    if(Object.keys(validationErrors).length ===0){
+    try {
+      if(!user || user===undefined || user===null){
+        return alert('Please sign in')
+      } else if (user.role ==="admin") {
+        return alert('only users are allowed')
+      }
+      const totalPrice = Number(price)*Number(guestSize) 
+      const bookingData={
+        userId : user && user._id, 
+        userEmail:user && user.email,
+        tourName :title,
+        fullName:user && user.username,
+        phone:phone,
+        guestSize:guestSize,
+        price:price,
+        totalAmount:totalPrice,
+        bookAt:booking.bookAt
+      }
+      console.log(bookingData)
+      const res = await fetch(`${BASE_URL}/booking`,{
+        method:'post',
+        headers:{
+          'content-type':'application/json'
+        },
+        credentials:'include',
+        body:JSON.stringify(bookingData)
+      })
+      const result = await res.json()
+      const data = result.data;
+      const{_id:bookId, totalAmount:amount} = data;
+      
+      handlePaymentKhalti(bookId,amount)
+      
+      if(!res.ok){
+        return alert(result.message)
+      } 
+    
+    } catch (err) {
+      alert(err.message)
+    }
+    }
+  };
+  
+  const handlePaymentKhalti = async (bookId,amount) => {
+    try {
+        const response = await axios.post(
+            `${BASE_URL}/payment/initiatekhalti`,
+            { amount: amount, bookId: bookId },
+            {
+                withCredentials: true // Include credentials in the request
+            }
+        );
+        window.location.href = response.data.paymentUrl;
+        console.log(response.data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
   return (
     <div className="booking">
     <div className="booking__top d-flex align-items-center justify-content-between">
-        <h3>${price} <span>/per person</span></h3>
+        <h3>Rs{price} <span>/per person</span></h3>
         <span className="tour__rating d-flex align-items-center ">
                 <i className="ri-star-s-fill"></i>{avgRating ===0?null:avgRating}
                ({reviews?.length})
@@ -43,18 +111,27 @@ const Booking = ({tour,avgRating}) => {
     {/* -----------------------------booking form------------------------------ */}
     <div className="booking__form">
       <h5>Information</h5>
-      <Form className='booking__info-form'onSubmit={handleClick}>
+      <Form className='booking__info-form' onSubmit={handleClick}>
         <FormGroup>
-            <input type="text" placeholder='Full Name' id='fullName' required onChange={handleChange} />
+          <Input type="text" id='fullName' value={user && user.username} required readOnly />
         </FormGroup>
         <FormGroup>
-            <input type="number" placeholder='Phone' id='Phone' required onChange={handleChange} />
+          <Input type="number" placeholder='Phone' id='phone' required onChange={handleChange} />
+          {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
         </FormGroup>
+      <div className="flex-container">
         <FormGroup className='d-flex align-items-center gap-3'>
-            <input type="date" placeholder='' id='bookAt' required onChange={handleChange} />
-            <input type="number" placeholder='No of people' id='guestSize' required onChange={handleChange} />
+            <Input type="date" placeholder='' id='bookAt' required onChange={handleChange} />
         </FormGroup>
-      </Form>
+        {errors.bookAt && <p style={{ color: "red" }}>{errors.bookAt}</p>}
+    </div>
+    <div className="flex-container">
+        <FormGroup className='d-flex align-items-center gap-3'>
+            <Input type="number" placeholder='No of people' id='guestSize' required onChange={handleChange} />
+        </FormGroup>
+        {errors.guestSize && <p style={{ color: "red" }}>{errors.guestSize}</p>}
+    </div>
+    </Form>
     </div>
     {/* -----------------------------booking form end------------------------------ */}
     {/* -----------------------------booking bottom------------------------------ */}
@@ -62,16 +139,13 @@ const Booking = ({tour,avgRating}) => {
         <ListGroup>
            <ListGroupItem className='border-0 px-0'>
             <h5 className="d-flex align-items-center gap-1">
-              ${price} <i class="ri-close-line"></i> 1 person </h5>
-              <span>${price}</span>
+              Rs{price} <i class="ri-close-line"></i> 1 person </h5>
+              <span>Rs{price}</span>
            </ListGroupItem>
-           <ListGroupItem className='border-0 px-0'>
-            <h5>Service charge</h5>
-              <span>${serviceFee}</span>
-           </ListGroupItem>
+          
            <ListGroupItem className='border-0 px-0 total'>
             <h5>Total </h5>
-              <span>${totalAmount}</span>
+              <span>Rs{totalAmount}</span>
            </ListGroupItem>
         </ListGroup>
 

@@ -1,0 +1,27 @@
+.khalti-success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.verifying-spinner {
+    width: 100px;
+    height: 100px;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-icon {
+    color: green;
+    font-size: 3rem;
+    margin-right: 10px;
+}

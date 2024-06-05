@@ -1,0 +1,35 @@
+/* admin.css */
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav___item {
+    margin-right: 15px; /* Add spacing between menu items */
+  }
+  
+  .nav___item a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease; /* Smooth color transition */
+    padding: 8px 12px; /* Add padding for better clickability */
+    border-radius: 5px; /* Add rounded corners */
+  }
+  
+  .nav___item a:hover {
+    color: var(--secondary-color); /* Change color on hover */
+    background-color: rgba(0, 0, 0, 0.1); /* Add a subtle background color on hover */
+  }
+  
+  .nav___item a.active___link {
+    color: var(--secondary-color); /* Active link color */
+    background-color: var(--primary-color); /* Add background color for active link */
+  }
+  .icon {
+    margin-right: 5px;
+  }

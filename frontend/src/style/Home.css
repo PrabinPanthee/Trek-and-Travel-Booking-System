@@ -22,7 +22,7 @@
     width: 100%;
     height: 350px;
     border-radius: 20px;
-    border: 1px solid var(--secondary-color);
+   
     object-fit: cover;
 }
 .home__content{
@@ -97,4 +97,7 @@
 }
 .masonry__img:hover{
     transform: scale(1.1);
+}
+.highlight{
+    color: #6e0f0f;
 }

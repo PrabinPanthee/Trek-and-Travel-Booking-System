@@ -1,22 +1,28 @@
 import React, { useRef } from 'react'
 import './SearchBar.css'
 import {Col,Form,FormGroup} from  'reactstrap'
+import { BASE_URL } from '../utils/config';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar() {
   const locationRef = useRef('');
-  const distanceRef = useRef(0);
-  const maxPeopleRef = useRef(0);
-   
-  const searchHndler = ()=>{ 
-    const location = locationRef.current.value;
-    const distance = distanceRef.current.value;
-    const maxPeople = maxPeopleRef.current.value;
   
-    if(location==='' || distance===''|| maxPeople===''){
+  const navigate = useNavigate();
+   
+  const searchHndler = async()=>{ 
+    const location = locationRef.current.value;
+   
+    
+  
+    if(location===''){
       
       return alert("All fields are required");
     }
-  }
+    const res = await fetch(`${BASE_URL}/tours/search/getTourBySearch?city=${location}`)
+    if(!res.ok) alert("something went wrong")
+    const result = await res.json()
+   navigate(`/tours/search?city=${location}`,{state: result.data})
+  };
  
   return (
     <Col lg = '12'>
@@ -29,20 +35,7 @@ function SearchBar() {
               <input type="text" placeholder='Search for Treks' ref={locationRef}/>
             </div>
           </FormGroup>
-          <FormGroup className='d-flex gap-3 form__group form__group-fast'> 
-            <span><i className="ri-pin-distance-line"></i></span>
-            <div>
-              <h6>Distance</h6>
-              <input type="number" placeholder='distance k/m' ref = {distanceRef}/>
-            </div>
-          </FormGroup>
-          <FormGroup className='d-flex gap-3 form__group form__group-fast'>
-            <span><i className="ri-group-fill"></i></span>
-            <div>
-              <h6>Max People</h6>
-              <input type="number" placeholder='0' ref={maxPeopleRef}/>
-            </div>
-          </FormGroup>
+          
           <span className="search__icon" type = "submit" onClick={searchHndler}>
           <i className="ri-search-2-line"></i>
           </span>

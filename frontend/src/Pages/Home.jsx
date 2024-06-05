@@ -9,7 +9,6 @@ import nepalImg from '../assets/images/nepal.png'
 import experienceImg from '../assets/images/experience.png'
 
 import Subtitle from '../shared/Subtitle'
-import SearchBar from '../shared/SearchBar'
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
 import MasonaryGallery from '../components/images-gallery/MasonaryGallery'
 import Subscribe from '../shared/subscribe'
@@ -38,7 +37,9 @@ function Home() {
               <img src={nepalImg} alt="" />
             </div>
             <h1>Traveling opens the door to create <span className="highlight">memories</span></h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolorem ipsum molestiae dolore magnam aperiam doloremque provident impedit reiciendis natus illum, velit quaerat commodi dolor! Sunt debitis qui in et blanditiis mollitia.</p>
+              <p> 
+                Nepal's allure lies in its blend of vibrant culture and awe-inspiring scenery, where each moment is a canvas painted with adventure. From the bustling streets of Kathmandu to the serene peaks of the Himalayas, it's a journey that leaves an indelible mark on the soul.
+              </p>
 
           </div>
         </Col>
@@ -53,22 +54,12 @@ function Home() {
             <img src={homeImg02} alt="error" />
           </div>
         </Col>
-        <SearchBar/>
       </Row>
     </Container>
     
     </section>
     {/* ---------------home sercives title  section---------------- */}
-    <section>
-      <Container>
-        <Row>
-          <Col lg='3'>
-            <h5 className="services__subtitle">What we serve</h5>
-            <h2 className="services__title">We offer our best services</h2>       
-         </Col>
-        </Row>
-      </Container>
-    </section>
+   
       {/* ---------------featured tour section start---------------- */}
       <section>
         <Container>

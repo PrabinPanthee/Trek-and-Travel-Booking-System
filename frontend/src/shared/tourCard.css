@@ -4,16 +4,20 @@
    width: 100%;
    border-radius: 5px 5px 0 0;
    transition: .3s;
+  
 }
-.tour__img img:hover{
+ .tour__img img:hover{
     transform: scale(1.1);
-}
+}  
 .card{
     border: none !important;
     box-shadow: rgba(0,0,0,0.2) 0px 18px 20px -10px;
+    height: 100%;
+   
 }
 .tour__img{
     position: relative;
+   
 }
 .tour__img span{
     position: absolute;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Container,Row,Col,ListGroup,ListGroupItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import Logo from "../../assets/images/logo.png"
 import './Footer.css'
+import { AuthContext } from '../../context/authContext'
 
 const quick__links =[
   {
@@ -33,32 +33,16 @@ const quick__links2 =[
   }
 ] 
 function Footer() {
+  const{user} = useContext(AuthContext);
   const year = new Date().getFullYear()
+  if(user && user.role ==='admin'){
+    return null;
+  }
   return (
    <>
    <footer className="footer">
     <Container>
       <Row>
-        <Col lg='3'>
-          <div className="logo">
-              <img src={Logo} alt="" />
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, exercitationem?</p>
-            
-              <div className="social__links d-flex align-items-center gap-4">
-                <span>
-                  <Link to='#'><i class="ri-mail-line"></i></Link>
-                </span>
-                <span>
-                  <Link to='#'><i class="ri-phone-line"></i></Link>
-                </span>
-                <span>
-                  <Link to='#'><i class="ri-instagram-line"></i></Link>
-                </span>
-              
-              </div>
-
-          </div>
-        </Col>
         <Col lg='3'>
           <h5 className="footer__Link-title">Discover</h5>
           <ListGroup className='footer__quick-links'>
@@ -104,7 +88,7 @@ function Footer() {
         <Col lg='12' className='text-center pt-5'>
           <p className="copyright">
             All rights reserved. <br />
-            Copyright {year},Developed @ Prabin-tech
+            Copyright {year},Developed @Team
           </p>
         </Col>
       </Row>

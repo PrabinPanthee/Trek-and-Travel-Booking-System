@@ -1,0 +1,66 @@
+/* AdminBookingList.css */
+
+/* Style for the table */
+.table-container {
+    overflow-x: auto;
+  }
+  
+  .table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6; /* Border for the entire table */
+  }
+  
+  /* Style for the table header */
+  .table-custom th {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #dee2e6; /* Border for table header cells */
+  }
+  
+  /* Style for table cells */
+  .table-custom td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #dee2e6; /* Border for table cells */
+  }
+  
+  /* Style for hover effect */
+  .table-custom tbody tr:hover {
+    background-color: #e9ecef; /* Change background color on hover */
+  }
+  
+  /* Style for odd rows */
+  .table-custom tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style for paid status */
+  .paid-cell {
+    background-color: lightgreen;
+  }
+  
+  /* Style for unpaid status */
+  .unpaid-cell {
+    background-color: #ffcccc;
+  }
+  
+  /* Style for khalti payment method */
+  .khalti-cell {
+    background-color: lightblue;
+  }
+  
+  /* Style for payment method and status */
+  .green-italic {
+    color: green;
+    font-style: italic;
+  }
+  
+  .red-italic {
+    color: red;
+    font-style: italic;
+  }
+  

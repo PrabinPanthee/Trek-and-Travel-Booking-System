@@ -2,13 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #ff7e01;
-  --secondary-color: #faa935;
+  --primary-color:#EA738D;
+  --secondary-color: #0d6efd;
   --heading-color: #0b2727;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
   --head-color:#362d2b;
+  
 }
 
 * {
@@ -78,7 +79,7 @@ ul {
 
 .section__subtitle {
   background: var(--secondary-color);
-  font-family: var(--subtitle-font-name);
+  font-family: var(--font-name);
   width: max-content;
   padding: 0px 0.5rem;
   padding-right: 1rem;
@@ -86,5 +87,5 @@ ul {
   border-radius: 50px;
   font-weight: 500;
   font-size: 1.7rem;
-  color: var(--heading-color);
+  color: #fff;
 }
